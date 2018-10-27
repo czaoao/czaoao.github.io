@@ -1,30 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-    <title>Bootstrap 实例 - 下拉菜单</title>
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Collections</title>
 </head>
 <body>
-
-<div class="container">
-  <h2>下拉菜单</h2>
-  <p>.dropdown 菜单用于指定下拉菜单，下拉菜单都包裹在 .dropdown 里。</p>
-  <p>.dropdown-menu 类用于实际下拉菜单的创建。</p>
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">教程
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-      <li role="presentation" class="divider"></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于我们</a></li>
-    </ul>
-  </div>
-</div>
-
+    <h1>我的收藏</h1>
+    <div id="app">
+        <div v-for='item in collections'>
+            <p>
+                <a :href="item.url">{{item.title}}</a>
+            </p>
+        </div>
+    </div>
 </body>
 </html>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            collections:[
+                {
+                    title:"django-rest-framework",
+                    url:"https://www.bookstack.cn/read/django-rest-framework-api-guide/README.md"    
+                },
+                {
+                    title:"书栈网",
+                    url:"https://www.bookstack.cn/"
+                },
+                {
+                    title:"科学上网",
+                    url:"https://go2think.com/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%EF%BC%9Avultr-vps-%E6%90%AD%E5%BB%BA-shadowsocks%EF%BC%88ss%EF%BC%89%E6%95%99%E7%A8%8B%EF%BC%88%E6%96%B0%E6%89%8B%E5%90%91%EF%BC%89/"
+                }
+            ]
+        }
+    })
+</script>
